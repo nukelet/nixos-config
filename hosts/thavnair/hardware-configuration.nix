@@ -30,7 +30,7 @@
             label = "system";
             fsType = "btrfs";
             options = [
-                "subvol=root"
+                "subvol=nix"
                 "defaults"
                 "lazytime"
                 "noatime"
