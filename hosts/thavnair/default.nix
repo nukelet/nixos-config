@@ -55,6 +55,11 @@
   environment.variables.EDITOR = "nvim";
   
   programs.command-not-found.enable = false;
+  
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
