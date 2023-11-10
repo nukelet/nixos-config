@@ -12,7 +12,7 @@
 
     fileSystems = {
         "/" = {
-            label = "system"
+            label = "system";
             fsType = "btrfs";
             options = [
                 "subvol=root"
@@ -27,6 +27,7 @@
         };
 
         "/nix" = {
+            label = "system";
             fsType = "btrfs";
             options = [
                 "subvol=root"
