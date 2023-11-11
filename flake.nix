@@ -56,7 +56,7 @@
                 modules = [
                     ./hosts/thavnair
                 ] ++ baseModules;
-                specialArgs = { inherit inputs outputs agenix; };
+                specialArgs = { inherit inputs outputs; };
             };
         };
     };

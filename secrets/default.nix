@@ -1,8 +1,9 @@
 # import and decrypt secrets here
-{ inputs, agenix, personal-secrets, ... }:
+{ inputs, ... }:
 
 let
     personal-secrets = inputs.personal-secrets;
+    agenix = inputs.agenix;
 in
 {
     imports = [
