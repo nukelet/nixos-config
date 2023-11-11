@@ -1,12 +1,18 @@
 # import and decrypt secrets here
 { inputs, agenix, personal-secrets, ... }:
 
+let
+    personal-secrets = inputs.personal-secrets;
+in
 {
     imports = [
-        inputs.agenix.nixosModules.default
+        agenix.nixosModules.default
     ];
-    
-    age.identityPaths = [
-        "/root/.ssh/secrets"
-    ];
+
+    age.secrets.nuke-hashed-password = {
+        file = "${personal-secrets}/nuke-hashed-password.age";
+    owner = "root";
+    group = "root";
+    };
+
 }

@@ -54,7 +54,7 @@
                     nix-index-database.nixosModules.nix-index
                     { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
                 ];
-                specialArgs = { inherit inputs outputs; };
+                specialArgs = { inherit inputs outputs agenix; };
             };
         };
     };
