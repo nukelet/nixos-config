@@ -108,11 +108,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1697456312,
-        "narHash": "sha256-roiSnrqb5r+ehnKCauPLugoU8S36KgmWraHgRqVYndo=",
+        "lastModified": 1699099776,
+        "narHash": "sha256-X09iKJ27mGsGambGfkKzqvw5esP1L/Rf8H3u3fCqIiU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ca012a02bf8327be9e488546faecae5e05d7d749",
+        "rev": "85f1ba3e51676fa8cc604a3d863d729026a6b8eb",
         "type": "github"
       },
       "original": {
@@ -125,11 +125,11 @@
     "personal-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1699669756,
-        "narHash": "sha256-kdm1WAdem65gP5E8VRCm4V+9cw3zpkvSzijEBR5eGEs=",
+        "lastModified": 1699682218,
+        "narHash": "sha256-/6z2znh0yC33QxDNmvBqpknu8PH0MMYYVKi8vIMuGCs=",
         "ref": "refs/heads/main",
-        "rev": "d633c40d856b4063113211acd70ddba9e450f96a",
-        "revCount": 1,
+        "rev": "88c85a9fffbdbc4d5bcb8328dcd100b56713fd18",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/nukelet/nixos-secrets.git"
       },

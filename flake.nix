@@ -41,8 +41,13 @@
     };
 
     outputs = { self, nixpkgs, nix-index-database, agenix, ... }@inputs:
-        let
+    let
         inherit (self) outputs;
+        baseModules = [
+            ./secrets/default.nix
+            nix-index-database.nixosModules.nix-index
+            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
+        ];
     in
     {
         nixosConfigurations = {
@@ -50,10 +55,7 @@
                 system = "x86_64-linux";
                 modules = [
                     ./hosts/thavnair
-                    ./secrets/default.nix
-                    nix-index-database.nixosModules.nix-index
-                    { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
-                ];
+                ] ++ baseModules;
                 specialArgs = { inherit inputs outputs agenix; };
             };
         };
