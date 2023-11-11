@@ -40,18 +40,19 @@
         };
     };
 
-    outputs = { self, nixpkgs, nix-index-database, ... }@inputs:
+    outputs = { self, nixpkgs, nix-index-database, agenix, ... }@inputs:
         let
         inherit (self) outputs;
-    systems = [ "x86_64-linux" ];
     in
     {
         nixosConfigurations = {
             "thavnair" = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
                 modules = [
                     ./hosts/thavnair
-		    ./secrets
+                    ./secrets/default.nix
                     nix-index-database.nixosModules.nix-index
+                    { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
                 ];
                 specialArgs = { inherit inputs outputs; };
             };
