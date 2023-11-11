@@ -125,11 +125,11 @@
     "personal-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1699669756,
-        "narHash": "sha256-kdm1WAdem65gP5E8VRCm4V+9cw3zpkvSzijEBR5eGEs=",
+        "lastModified": 1699682218,
+        "narHash": "sha256-/6z2znh0yC33QxDNmvBqpknu8PH0MMYYVKi8vIMuGCs=",
         "ref": "refs/heads/main",
-        "rev": "d633c40d856b4063113211acd70ddba9e450f96a",
-        "revCount": 1,
+        "rev": "88c85a9fffbdbc4d5bcb8328dcd100b56713fd18",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/nukelet/nixos-secrets.git"
       },
