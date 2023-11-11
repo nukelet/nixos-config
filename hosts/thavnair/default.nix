@@ -50,6 +50,7 @@
     inetutils
     toybox
     tcpflow
+    findutils
   ];
 
   environment.variables.EDITOR = "nvim";
