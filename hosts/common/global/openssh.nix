@@ -1,4 +1,4 @@
-{ outputs, lib, config }:
+{ outputs, lib, config, ... }:
 
 let
     inherit (config.networking) hostName;
@@ -25,7 +25,7 @@ in
         # This ingenious trick is shamelessly stolen from Misterio77's config:
         # https://github.com/Misterio77/nix-config/blob/main/hosts/common/global/openssh.nix
         # We add to out ssh.knownHosts the public keys for each host defined in nixosConfigurations
-        knownHosts = bultins.mapAttrs
+        knownHosts = builtins.mapAttrs
             (name: _: {
                 publicKeyFile = pubKey name;
             })

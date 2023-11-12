@@ -24,6 +24,11 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        sops-nix = {
+            url = "github:Mic92/sops-nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         agenix = {
             url = "github:ryantm/agenix";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -40,13 +45,13 @@
         };
     };
 
-    outputs = { self, nixpkgs, nix-index-database, agenix, ... }@inputs:
+    outputs = { self, nixpkgs, nix-index-database, ... }@inputs:
     let
         inherit (self) outputs;
         baseModules = [
-            ./secrets/default.nix
+            # ./secrets/default.nix
             nix-index-database.nixosModules.nix-index
-            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
+            # { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
         ];
     in
     {

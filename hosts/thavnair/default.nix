@@ -8,7 +8,7 @@
     imports = [
         ./hardware-configuration.nix
         ../common/users
-	../common/globals
+	../common/global
     ];
 
     # Enable Flakes
@@ -38,12 +38,17 @@
         git
         tree
         htop
-        dnsutils
         unzip
+
+        dnsutils
         inetutils
         toybox
         tcpflow
         findutils
+
+        gnupg
+	pinentry-curses
+	sops
     ];
 
     environment.variables.EDITOR = "nvim";
@@ -58,11 +63,6 @@
     programs.zsh = {
         enable = true;
     };
-
-    # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
-    services.openssh.settings.PasswordAuthentication = true;
-    services.openssh.settings.PermitRootLogin = "yes";
 
     virtualisation.docker.enable = true;
 
