@@ -8,6 +8,7 @@
     imports = [
         ./hardware-configuration.nix
         ../common/users
+	../common/globals
     ];
 
     # Enable Flakes
