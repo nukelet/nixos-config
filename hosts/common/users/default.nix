@@ -18,11 +18,6 @@ in
             ];
 
             hashedPasswordFile = sops.secrets.nuke-hashed-password.path;
-            # password = "changeme";
-        };
-
-        root = {
-            password = "changeme";
         };
     };
 

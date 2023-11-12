@@ -29,16 +29,6 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        agenix = {
-            url = "github:ryantm/agenix";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        personal-secrets = {
-            url = "git+ssh://git@github.com/nukelet/nixos-secrets.git";
-            flake = false;
-        };
-
         nix-index-database = {
             url = "github:Mic92/nix-index-database";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -49,9 +39,7 @@
     let
         inherit (self) outputs;
         baseModules = [
-            # ./secrets/default.nix
             nix-index-database.nixosModules.nix-index
-            # { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
         ];
     in
     {
