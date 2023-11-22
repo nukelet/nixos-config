@@ -1,12 +1,12 @@
 keys:
     # PGP key for deploying secrets
-    - &nuke 0346D64B6E44D15FCEDF4B17DAA5186768156B42
+    - &nuke-encryption-key 8605334DEDB4691407AEBC92CC1C67D2BFC2B3E4
     # age keys generated from host SSH keys
     - &thavnair age1st387j7khxrs496wtvsx777eq3l3gqxnxzmur7rgnzmzg08zp3yq6rdxut
 creation_rules:
     - path_regex: hosts/common/secrets\.(yaml|json|env|ini)$
       key_groups:
       - pgp:
-        - *nuke
+        - *nuke-encryption-key
         age:
         - *thavnair
