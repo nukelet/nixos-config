@@ -25,4 +25,8 @@ in
         sopsFile = ../secrets.yaml;
         neededForUsers = true;
     };
+
+    # TODO: make the home-manager configurations a module instead of
+    # hard-coding the path like this
+    home-manager.users.nuke = import ../../../home/nuke/${config.networking.hostName}.nix;
 }

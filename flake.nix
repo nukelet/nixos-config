@@ -20,7 +20,7 @@
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
         home-manager = {
-            url = "github:nix-community/home-manager/release-23.05";
+            url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
@@ -35,12 +35,18 @@
         };
     };
 
-    outputs = { self, nixpkgs, nix-index-database, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
     let
         inherit (self) outputs;
+        lib = nixpkgs.lib // home-manager.lib;
         baseModules = [
             nix-index-database.nixosModules.nix-index
         ];
+        systems = [ "x86_64-linux" ];
+        pkgsFor = lib.genAttrs systems (system: import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+        });
     in
     {
         nixosConfigurations = {
@@ -50,6 +56,14 @@
                     ./hosts/thavnair
                 ] ++ baseModules;
                 specialArgs = { inherit inputs outputs; };
+            };
+        };
+
+        homeConfigurations = {
+            "nuke@thavnair" = lib.homeManagerConfiguration {
+                modules = [ ./home/nuke/thavnair.nix ];
+                pkgs = pkgsFor.x86_64-linux;
+                extraSpecialArgs = { inherit inputs outputs; };
             };
         };
     };

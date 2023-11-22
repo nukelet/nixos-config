@@ -1,10 +1,11 @@
-{ input, outputs, ... }:
+{ inputs, outputs, ... }:
 
 {
     imports = [
         ./openssh.nix
-	./gnupg.nix
-	./sops.nix
+        ./gnupg.nix
+        ./sops.nix
+        inputs.home-manager.nixosModules.home-manager
     ];
 
     nixpkgs = {
