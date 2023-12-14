@@ -1,7 +1,7 @@
 { inputs, lib, config, ... }:
 
 let
-    baseDomain = networking.domain;
+    baseDomain = config.networking.domain;
     subDomain = "headscale";
     fullDomain = "${subDomain}.${baseDomain}";
 in {
