@@ -8,6 +8,7 @@
         ./openssh.nix
         ./gnupg.nix
         ./sops.nix
+        ./tailscale.nix
         inputs.home-manager.nixosModules.home-manager
     ];
 

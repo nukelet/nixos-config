@@ -12,7 +12,7 @@ in {
         port = 8080;
         settings = {
             logtail.enabled = false;
-            server_url = "http://${fullDomain}";
+            server_url = "https://${fullDomain}";
             dns_config.base_domain = baseDomain;
         };
     };
