@@ -3,6 +3,7 @@ keys:
     - &nuke-encryption-key 8605334DEDB4691407AEBC92CC1C67D2BFC2B3E4
     # age keys generated from host SSH keys
     - &thavnair age1st387j7khxrs496wtvsx777eq3l3gqxnxzmur7rgnzmzg08zp3yq6rdxut
+    - &zanarkand age1ly9km45hyukz9ay2c6nqxlhnscqnvzrx67dn24gs06p7tqe3jpgq9zq0sr
 creation_rules:
     - path_regex: hosts/common/secrets\.(yaml|json|env|ini)$
       key_groups:
@@ -10,3 +11,4 @@ creation_rules:
         - *nuke-encryption-key
         age:
         - *thavnair
+        - *zanarkand
