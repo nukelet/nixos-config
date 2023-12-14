@@ -30,6 +30,6 @@
     home = {
         username = "nuke";
         homeDirectory = "/home/${config.home.username}";
-        stateVersion = "23.05";
+        stateVersion = "23.11";
     };
 }
