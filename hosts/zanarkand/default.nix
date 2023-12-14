@@ -5,7 +5,7 @@
         ./hardware-configuration.nix
         ../common/users
 	../common/global
-	# ../common/optional/headscale.nix
+	../common/optional/headscale.nix
     ];
 
     networking.hostName = "zanarkand"; # Define your hostname.
