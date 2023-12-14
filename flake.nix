@@ -57,6 +57,14 @@
                 ] ++ baseModules;
                 specialArgs = { inherit inputs outputs; };
             };
+
+            "zanarkand" = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                modules = [
+                    ./hosts/zanarkand
+                ] ++ baseModules;
+                specialArgs = { inherit inputs outputs; };
+            };
         };
 
         homeConfigurations = {

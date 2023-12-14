@@ -1,5 +1,9 @@
 { inputs, ... }:
 
 {
-    imports = [ ./global ];
+    imports = [
+        ./global
+        ./features/development
+        ./features/desktop/i3
+    ];
 }
