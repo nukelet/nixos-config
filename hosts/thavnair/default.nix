@@ -9,7 +9,6 @@
         ./hardware-configuration.nix
         ../common/users
 	../common/global
-	# ../common/optional/headscale.nix
     ];
 
 
