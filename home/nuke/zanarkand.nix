@@ -3,5 +3,6 @@
 {
     imports = [
         ./global
+        ./features/development
     ];
 }
