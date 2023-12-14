@@ -20,6 +20,7 @@
 
     hardware.enableRedistributableFirmware = true;
     networking.domain = "nukelet.online";
+    services.resolved.enable = true;
 
     environment.systemPackages = with pkgs; [
         zsh

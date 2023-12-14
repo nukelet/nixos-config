@@ -21,7 +21,7 @@ in {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-            proxyPass = "https://localhost:${toString config.services.headscale.port}";
+            proxyPass = "http://localhost:${toString config.services.headscale.port}";
             proxyWebsockets = true;
         };
     };
