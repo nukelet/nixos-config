@@ -23,6 +23,7 @@
     services.resolved.enable = true;
 
     environment.systemPackages = with pkgs; [
+        bash
         zsh
         neovim
         wget
@@ -43,8 +44,6 @@
 	sops
     ];
 
-    environment.variables.EDITOR = "nvim";
-
     programs.command-not-found.enable = false;
 
     programs.neovim = {
@@ -52,7 +51,5 @@
         defaultEditor = true;
     };
 
-    programs.zsh = {
-        enable = true;
-    };
+    programs.zsh.enable = true;
 }
