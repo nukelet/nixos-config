@@ -6,6 +6,8 @@
         ../common/users
 	../common/global
 	../common/desktop/plasma
+	../common/desktop/bluetooth.nix
+	../common/desktop/pipewire.nix
 	../common/optional/polkit.nix
     ];
 
