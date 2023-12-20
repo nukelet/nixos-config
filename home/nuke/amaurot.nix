@@ -5,5 +5,6 @@
         ./global
         ./features/development
         ./features/desktop/common
+        ./features/messaging/discord.nix
     ];
 }
