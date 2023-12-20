@@ -33,6 +33,13 @@
             url = "github:Mic92/nix-index-database";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        # TODO: get this to work
+        # plasma-manager = {
+        #     url = "github:pjones/plasma-manager";
+        #     inputs.nixpkgs.follows = "nixpkgs";
+        #     inputs.home-manager.follows = "home-manager";
+        # };
     };
 
     outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
@@ -65,11 +72,33 @@
                 ] ++ baseModules;
                 specialArgs = { inherit inputs outputs; };
             };
+
+            "amaurot" = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                modules = [
+                    ./hosts/amaurot
+                ] ++ baseModules;
+                specialArgs = { inherit inputs outputs; };
+            };
         };
 
         homeConfigurations = {
             "nuke@thavnair" = lib.homeManagerConfiguration {
                 modules = [ ./home/nuke/thavnair.nix ];
+                pkgs = pkgsFor.x86_64-linux;
+                extraSpecialArgs = { inherit inputs outputs; };
+            };
+
+            "nuke@amaurot" = lib.homeManagerConfiguration {
+                modules = [
+                    ./home/nuke/amaurot.nix
+                ];
+                pkgs = pkgsFor.x86_64-linux;
+                extraSpecialArgs = { inherit inputs outputs; };
+            };
+
+            "nuke@zanarkand" = lib.homeManagerConfiguration {
+                modules = [ ./home/nuke/zanarkand.nix ];
                 pkgs = pkgsFor.x86_64-linux;
                 extraSpecialArgs = { inherit inputs outputs; };
             };
