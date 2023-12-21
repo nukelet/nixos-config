@@ -4,75 +4,76 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+    imports =
+        [ (modulesPath + "/installer/scan/not-detected.nix")
+        ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "amdgpu" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "amdgpu" ];
+    boot.initrd.kernelModules = [ ];
+    boot.kernelModules = [ "kvm-amd" ];
+    boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
+    fileSystems."/" =
     { device = "/dev/disk/by-uuid/452d4fc3-0d88-4002-854c-541187d4f198";
-      fsType = "btrfs";
-      options = [ "subvol=root" ];
+        fsType = "btrfs";
+        options = [ "subvol=root" ];
     };
 
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/d03a18e5-ced3-461a-afb4-d218fb14caf0";
+    boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/d03a18e5-ced3-461a-afb4-d218fb14caf0";
 
-  fileSystems."/boot" =
+    fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/04F7-0775";
-      fsType = "vfat";
-      neededForBoot = true;
+        fsType = "vfat";
+        neededForBoot = true;
     };
 
-  fileSystems."/nix" =
+    fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/452d4fc3-0d88-4002-854c-541187d4f198";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+        fsType = "btrfs";
+        options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
-  fileSystems."/home" =
+    fileSystems."/home" =
     { device = "/dev/disk/by-uuid/452d4fc3-0d88-4002-854c-541187d4f198";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" "noatime" ];
+        fsType = "btrfs";
+        options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
-  fileSystems."/persist" =
+    fileSystems."/persist" =
     { device = "/dev/disk/by-uuid/452d4fc3-0d88-4002-854c-541187d4f198";
-      fsType = "btrfs";
-      options = [ "subvol=persist" "compress=zstd" "noatime" ];
+        fsType = "btrfs";
+        options = [ "subvol=persist" "compress=zstd" "noatime" ];
     };
 
-  fileSystems."/var/log" =
+    fileSystems."/var/log" =
     { device = "/dev/disk/by-uuid/452d4fc3-0d88-4002-854c-541187d4f198";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "noatime" ];
-      neededForBoot = true;
+        fsType = "btrfs";
+        options = [ "subvol=log" "compress=zstd" "noatime" ];
+        neededForBoot = true;
     };
 
-  fileSystems."/data" =
+    fileSystems."/data" =
     { device = "/dev/disk/by-uuid/381f0772-daaf-4cbf-a95a-1e005a086539";
-      fsType = "btrfs";
-      options = [ "subvol=root" "autodefrag" "noatime" "compress=zstd" ];
+        fsType = "btrfs";
+        options = [ "subvol=root" "autodefrag" "noatime" "compress=zstd" ];
     };
 
-  boot.initrd.luks.devices."data".device = "/dev/disk/by-uuid/66bd0aec-d226-40d8-8534-48153f0bae1a";
+    boot.initrd.luks.devices."data".device = "/dev/disk/by-uuid/66bd0aec-d226-40d8-8534-48153f0bae1a";
 
-  fileSystems."/snapshots" =
+    fileSystems."/snapshots" =
     { device = "/dev/disk/by-uuid/381f0772-daaf-4cbf-a95a-1e005a086539";
-      fsType = "btrfs";
-      options = [ "subvol=snapshots" "autodefrag" "noatime" "compress=zstd" ];
+        fsType = "btrfs";
+        options = [ "subvol=snapshots" "autodefrag" "noatime" "compress=zstd" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/60dcc8dd-42c9-45c4-9b02-f8ed647db2e7"; }
-    ];
+    swapDevices =
+        [ { device = "/dev/disk/by-uuid/60dcc8dd-42c9-45c4-9b02-f8ed647db2e7"; }
+        ];
 
-  networking.useDHCP = lib.mkDefault true;
+        networking.useDHCP = lib.mkDefault true;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+        nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+        powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+        hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
