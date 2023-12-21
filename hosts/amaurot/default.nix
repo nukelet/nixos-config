@@ -9,6 +9,7 @@
 	../common/desktop/bluetooth.nix
 	../common/desktop/pipewire.nix
 	../common/optional/polkit.nix
+	../common/gaming
     ];
 
     # Use the systemd-boot EFI boot loader.
