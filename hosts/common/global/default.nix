@@ -39,6 +39,8 @@
         tcpflow
         findutils
 
+        pciutils
+
         gnupg
 	pinentry-curses
 	sops
