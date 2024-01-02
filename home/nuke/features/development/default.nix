@@ -5,6 +5,8 @@
         gcc
         nodejs
 
+        cargo
+
         nix-prefetch-github
     ];
 }

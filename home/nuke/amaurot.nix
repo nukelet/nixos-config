@@ -7,5 +7,7 @@
         ./features/desktop/common
         ./features/messaging/discord.nix
         ./features/misc
+        ./features/nvim
+        ./features/gaming/heroic.nix
     ];
 }
