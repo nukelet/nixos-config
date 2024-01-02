@@ -5,6 +5,7 @@
         ../common/kitty.nix
         ../common/fonts.nix
     ];
+
     wayland.windowManager.sway = {
         enable = true;
         config = rec {
