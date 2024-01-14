@@ -34,6 +34,16 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        hyprland = {
+            url = "github:hyprwm/Hyprland";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        hyprland-plugins = {
+            url = "github:hyprwm/hyprland-plugins";
+            inputs.hyprland.follows = "hyprland";
+        };
+
         # TODO: get this to work
         # plasma-manager = {
         #     url = "github:pjones/plasma-manager";
