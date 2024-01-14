@@ -50,9 +50,11 @@
             nix-index-database.nixosModules.nix-index
         ];
         systems = [ "x86_64-linux" ];
+        overlays = import ./overlays { inherit inputs outputs; };
         pkgsFor = lib.genAttrs systems (system: import nixpkgs {
             inherit system;
             config.allowUnfree = true;
+            overlays = builtins.attrValues outputs.overlays;
         });
     in
     {
