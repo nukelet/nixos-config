@@ -5,5 +5,6 @@
         ./firefox.nix
         ./kitty.nix
         ./fonts.nix
+        ./fcitx.nix
     ];
 }
