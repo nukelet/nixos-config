@@ -6,5 +6,6 @@
         vlc
         inkscape
         krita
+        spotify
     ];
 }
