@@ -44,6 +44,11 @@
             inputs.hyprland.follows = "hyprland";
         };
 
+        website = {
+            url = "github:nukelet/website";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         # TODO: get this to work
         # plasma-manager = {
         #     url = "github:pjones/plasma-manager";

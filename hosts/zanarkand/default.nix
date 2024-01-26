@@ -7,6 +7,7 @@
 	../common/global
 	../common/optional/headscale.nix
 	../common/optional/quassel.nix
+	../common/optional/website.nix
     ];
 
     networking.hostName = "zanarkand"; # Define your hostname.

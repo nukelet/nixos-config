@@ -170,7 +170,8 @@
         "hyprland-plugins": "hyprland-plugins",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "website": "website"
       }
     },
     "sops-nix": {
@@ -206,6 +207,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "website": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1706235960,
+        "narHash": "sha256-OQoQ3JBU9evnJgFi9X0QAFAT7pYuqLMZRHrbG6xz1rg=",
+        "owner": "nukelet",
+        "repo": "website",
+        "rev": "f3d163053e6dcb8e9b8d3df6424cf2320bf9eabb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nukelet",
+        "repo": "website",
         "type": "github"
       }
     },
