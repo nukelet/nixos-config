@@ -32,6 +32,7 @@
         tree
         htop
         unzip
+        ripgrep
 
         dnsutils
         inetutils
