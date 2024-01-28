@@ -14,3 +14,10 @@ creation_rules:
         - *thavnair
         - *zanarkand
         - *amaurot
+
+    - path_regex: hosts/common/services/secrets\.(yaml|json|env|ini)$
+      key_groups:
+        - pgp:
+          - *nuke-encryption-key
+          age:
+            - *amaurot
