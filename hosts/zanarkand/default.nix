@@ -5,6 +5,7 @@
         ./hardware-configuration.nix
         ../common/users
 	../common/global
+	../common/virtualisation
 	../common/optional/headscale.nix
 	../common/optional/quassel.nix
 	../common/optional/website.nix
@@ -15,8 +16,6 @@
 
     # Set your time zone.
     time.timeZone = "America/Sao_Paulo";
-
-    virtualisation.docker.enable = true;
 
     system.stateVersion = "23.11";
 }

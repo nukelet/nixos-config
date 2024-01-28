@@ -5,6 +5,7 @@
         ./hardware-configuration.nix
         ../common/users
 	../common/global
+	../common/virtualisation
     ];
 
 
@@ -21,8 +22,6 @@
 
     # Set your time zone.
     time.timeZone = "America/Sao_Paulo";
-
-    virtualisation.docker.enable = true;
 
     system.stateVersion = "23.11";
 

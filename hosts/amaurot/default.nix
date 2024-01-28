@@ -9,6 +9,7 @@
 	../common/desktop/pipewire.nix
 	../common/hardware/bluetooth.nix
 	../common/hardware/amd.nix
+	../common/virtualisation
 	../common/optional/polkit.nix
 	../common/gaming
     ];
@@ -22,8 +23,6 @@
 
     # Set your time zone.
     time.timeZone = "America/Sao_Paulo";
-
-    virtualisation.docker.enable = true;
 
     system.stateVersion = "23.11";
 }
