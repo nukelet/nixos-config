@@ -5,7 +5,7 @@ let
     subDomain = "www";
     fullDomain = "${subDomain}.${baseDomain}";
 in {
-    imports = [ ./nginx.nix ];
+    imports = [ ../optional/nginx.nix ];
     services.nginx.virtualHosts.${fullDomain} = {
         forceSSL = true;
         enableACME = true;
