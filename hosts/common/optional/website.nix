@@ -10,7 +10,7 @@ in {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-            root = inputs.website;
+            root = inputs.website.packages.${pkgs.hostPlatform.system}.default;
         };
     };
 }
