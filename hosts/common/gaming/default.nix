@@ -3,6 +3,6 @@
 {
     imports = [
         ./steam.nix
-        ./cemu.nix
+        # ./cemu.nix
     ];
 }
