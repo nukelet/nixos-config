@@ -9,7 +9,6 @@
 	../common/desktop/pipewire.nix
 	../common/hardware/bluetooth.nix
 	../common/hardware/nvidia.nix
-	../common/hardware/amd.nix
 	../common/virtualisation
 	../common/optional/polkit.nix
 	../common/gaming

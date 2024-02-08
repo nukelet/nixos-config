@@ -5,6 +5,7 @@ keys:
     - &thavnair age1st387j7khxrs496wtvsx777eq3l3gqxnxzmur7rgnzmzg08zp3yq6rdxut
     - &zanarkand age1ly9km45hyukz9ay2c6nqxlhnscqnvzrx67dn24gs06p7tqe3jpgq9zq0sr
     - &amaurot age1j36tyyunxzp5u58x42xz0dalu8909h9pp4yrvv3g5qgmjzrnk4xs658ht4
+    - &elpis age1sc2mwu6n4y9ku80e3qgr9dhy76gcr67q3jzp8ynnttjrhkt2349qmcdl3k
 creation_rules:
     - path_regex: hosts/common/secrets\.(yaml|json|env|ini)$
       key_groups:
@@ -14,6 +15,7 @@ creation_rules:
         - *thavnair
         - *zanarkand
         - *amaurot
+        - *elpis
 
     - path_regex: hosts/common/services/secrets\.(yaml|json|env|ini)$
       key_groups:

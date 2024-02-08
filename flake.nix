@@ -97,11 +97,25 @@
                 ] ++ baseModules;
                 specialArgs = { inherit inputs outputs; };
             };
+
+            "elpis" = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                modules = [
+                    ./hosts/elpis
+                ] ++ baseModules;
+                specialArgs = { inherit inputs outputs; };
+            };
         };
 
         homeConfigurations = {
             "nuke@thavnair" = lib.homeManagerConfiguration {
                 modules = [ ./home/nuke/thavnair.nix ];
+                pkgs = pkgsFor.x86_64-linux;
+                extraSpecialArgs = { inherit inputs outputs; };
+            };
+
+            "nuke@zanarkand" = lib.homeManagerConfiguration {
+                modules = [ ./home/nuke/zanarkand.nix ];
                 pkgs = pkgsFor.x86_64-linux;
                 extraSpecialArgs = { inherit inputs outputs; };
             };
@@ -114,8 +128,10 @@
                 extraSpecialArgs = { inherit inputs outputs; };
             };
 
-            "nuke@zanarkand" = lib.homeManagerConfiguration {
-                modules = [ ./home/nuke/zanarkand.nix ];
+            "nuke@elpis" = lib.homeManagerConfiguration {
+                modules = [
+                    ./home/nuke/elpis.nix
+                ];
                 pkgs = pkgsFor.x86_64-linux;
                 extraSpecialArgs = { inherit inputs outputs; };
             };
