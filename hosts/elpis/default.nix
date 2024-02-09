@@ -14,6 +14,14 @@
 	../common/gaming
     ];
 
+    # TODO: maybe refactor this into something more idiomatic?
+    #       and maybe move it to home-manager somehow?
+    services.xserver.displayManager.setupCommands = ''
+        LEFT='HDMI-0'
+        RIGHT='DP-0'
+        ${pkgs.xorg.xrandr}/bin/xrandr --output $RIGHT --primary --output $RIGHT --left-of DP-0
+    '';
+
     # Use the systemd-boot EFI boot loader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
