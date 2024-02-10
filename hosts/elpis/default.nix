@@ -14,12 +14,16 @@
 	../common/gaming
     ];
 
+    # for some stupid reason NixOS defaults to LMB+RMB = middle button click
+    services.xserver.libinput.mouse.middleEmulation = false;
+
+    # configure monitors in xrandr
     # TODO: maybe refactor this into something more idiomatic?
     #       and maybe move it to home-manager somehow?
     services.xserver.displayManager.setupCommands = ''
         LEFT='HDMI-0'
         RIGHT='DP-0'
-        ${pkgs.xorg.xrandr}/bin/xrandr --output $RIGHT --primary --output $RIGHT --left-of DP-0
+        ${pkgs.xorg.xrandr}/bin/xrandr --output $RIGHT --primary --output $LEFT --left-of $RIGHT --auto
     '';
 
     # Use the systemd-boot EFI boot loader.
