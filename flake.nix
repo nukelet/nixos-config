@@ -49,12 +49,10 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        # TODO: get this to work
-        # plasma-manager = {
-        #     url = "github:pjones/plasma-manager";
-        #     inputs.nixpkgs.follows = "nixpkgs";
-        #     inputs.home-manager.follows = "home-manager";
-        # };
+        musnix = {
+            url = "github:musnix/musnix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
@@ -101,6 +99,7 @@
             "elpis" = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
                 modules = [
+                    inputs.musnix.nixosModules.musnix
                     ./hosts/elpis
                 ] ++ baseModules;
                 specialArgs = { inherit inputs outputs; };

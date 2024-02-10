@@ -3,6 +3,10 @@
 {
     imports = [
         ./hardware-configuration.nix
+
+        # machine-specific audio patches
+        ./audio
+
         ../common/users
 	../common/global
 	../common/desktop/plasma
