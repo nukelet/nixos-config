@@ -142,7 +142,7 @@ in
 
 
                 # screenshots
-                "Print" = "${pkgs.flameshot}/bin/flameshot gui -p ~/screenshots";
+                "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui -p ~/screenshots";
             };
 
             modes.resize = {
