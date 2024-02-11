@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
     imports = [
@@ -7,4 +7,6 @@
         ./fonts.nix
         ./fcitx.nix
     ];
+
+    xdg.mimeApps.enable = true;
 }

@@ -9,10 +9,13 @@
 
         ../common/users
 	../common/global
-	../common/desktop/plasma
-	../common/desktop/pipewire.nix
+
 	../common/hardware/bluetooth.nix
 	../common/hardware/nvidia.nix
+	../common/desktop/pipewire.nix
+
+	../common/desktop/i3
+
 	../common/virtualisation
 	../common/optional/polkit.nix
 	../common/gaming
@@ -24,11 +27,11 @@
     # configure monitors in xrandr
     # TODO: maybe refactor this into something more idiomatic?
     #       and maybe move it to home-manager somehow?
-    services.xserver.displayManager.setupCommands = ''
-        LEFT='HDMI-0'
-        RIGHT='DP-0'
-        ${pkgs.xorg.xrandr}/bin/xrandr --output $RIGHT --primary --output $LEFT --left-of $RIGHT --auto
-    '';
+    # services.xserver.displayManager.setupCommands = ''
+    #     LEFT='HDMI-0'
+    #     RIGHT='DP-0'
+    #     ${pkgs.xorg.xrandr}/bin/xrandr --auto && ${pkgs.xorg.xrandr}/bin/xrandr --output $RIGHT --primary --output $LEFT --left-of $RIGHT
+    # '';
 
     # Use the systemd-boot EFI boot loader.
     boot.loader.systemd-boot.enable = true;

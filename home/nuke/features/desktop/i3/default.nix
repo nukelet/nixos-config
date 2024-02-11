@@ -7,10 +7,12 @@ in
     imports = [
         ../common
         ./rofi.nix
+        ./theme.nix
     ];
 
     fonts.fontconfig.enable = true;
     home.packages = with pkgs; [
+        i3lock-fancy-rapid
         i3status
         flameshot
         libnotify
@@ -64,17 +66,30 @@ in
                 {
                     command = "${pkgs.i3}/bin/i3-msg 'workspace 9; exec ${pkgs.easyeffects}/bin/easyeffects'";
                     notification = false;
-
                 }
-            ];
+
+                # TODO: this is specific to the `elpis` host, maybe move somewhere else
+            #     {
+            #         command = ''
+            #             ${pkgs.xorg.xrandr}/bin/xrandr --auto && ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --primary --output HDMI-0 --left-of DP-0
+            #         '';
+            #         notification = false;
+            #     }
+           ];
 
             keybindings = lib.mkOptionDefault {
+                # NOTE: these should probably be using ${pkgs.<...>}/bin/<...>, but
+                #       I guess having it like this makes it possible to reuse the
+                #       generated config file in ~/.config/i3
+
                 # start terminal
                 "${mod}+Return" = "exec kitty";
                 # kill focused window
                 "${mod}+Shift+q" = "kill";
                 # start rofi
                 "${mod}+d" = "exec --no-startup-id rofi -show run";
+                # lock screen
+                "${mod}+Control+l" = "exec --no-startup-id i3lock 20 20";
 
                 # change focus
                 "${mod}+h" = "focus left";
