@@ -18,5 +18,6 @@ in
         krita
         spotify
         obsidian
+        logseq
     ];
 }
