@@ -17,7 +17,18 @@ in
         inkscape
         krita
         spotify
+
+        # productivity
         obsidian
-        logseq
+        anki
+
+        # music stuff
+        reaper
+        qjackctl
+        lingot
+
+        # TODO: move somewhere more appropriate, perhaps nvim config
+        texlive.combined.scheme-full
+        zathura
     ];
 }
