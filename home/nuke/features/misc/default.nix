@@ -17,6 +17,7 @@ in
         inkscape
         krita
         spotify
+        thunderbird
 
         # productivity
         obsidian
