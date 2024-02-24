@@ -1,6 +1,6 @@
 { pkgs, config, home-manager, ... }:
 let
-    ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+    ifGroupsExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
     sops = config.sops;
 in
 {
@@ -14,8 +14,9 @@ in
                 "wheel"
                 "video"
                 "audio"
-            ] ++ ifTheyExist [
+            ] ++ ifGroupsExist [
                 "docker"
+                "libvirtd"
             ];
 
             hashedPasswordFile = sops.secrets.nuke-hashed-password.path;

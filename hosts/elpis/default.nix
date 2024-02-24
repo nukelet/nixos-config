@@ -17,6 +17,8 @@
 	../common/desktop/i3
 
 	../common/virtualisation
+	../common/virtualisation/qemu.nix
+
 	../common/optional/polkit.nix
 	../common/gaming
     ];
