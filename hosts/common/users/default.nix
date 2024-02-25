@@ -17,6 +17,7 @@ in
             ] ++ ifGroupsExist [
                 "docker"
                 "libvirtd"
+                "wireshark"
             ];
 
             hashedPasswordFile = sops.secrets.nuke-hashed-password.path;

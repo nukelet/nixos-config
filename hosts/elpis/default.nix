@@ -21,6 +21,8 @@
 
 	../common/optional/polkit.nix
 	../common/gaming
+
+	../common/optional/wireshark.nix
     ];
 
     # for some stupid reason NixOS defaults to LMB+RMB = middle button click
