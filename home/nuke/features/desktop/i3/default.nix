@@ -18,6 +18,7 @@ in
         libnotify
         feh
         playerctl
+        xclip
     ];
 
     xsession.enable = true;
