@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+    environment.systemPackages = [ pkgs.virtiofsd ];
     virtualisation.libvirtd = {
         enable = true;
         qemu = {
