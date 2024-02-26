@@ -33,6 +33,7 @@
         htop
         unzip
         ripgrep
+        tmux
 
         dnsutils
         inetutils
