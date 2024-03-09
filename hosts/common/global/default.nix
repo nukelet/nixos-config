@@ -1,4 +1,4 @@
-{ inputs, pkgs, outputs, ... }:
+{ inputs, lib, pkgs, outputs, ... }:
 
 {
     # Enable Flakes
@@ -20,7 +20,7 @@
 
     hardware.enableRedistributableFirmware = true;
     networking.domain = "nukelet.online";
-    services.resolved.enable = true;
+    services.resolved.enable = lib.mkDefault true;
 
     environment.systemPackages = with pkgs; [
         bash

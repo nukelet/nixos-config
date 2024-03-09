@@ -2,21 +2,24 @@
 
 {
     networking = {
-        enp0s31f6.ipv4.address = {
+        interfaces.enp0s31f6.ipv4.addresses = [{
             address = "143.106.50.66";
             prefixLength = 26;
-        };
+        }];
 
         defaultGateway = {
             address = "143.106.50.65";
             interface = "enp0s31f6";
         };
+
+        nameservers = [ "143.106.8.30" "143.106.2.5" ];
     };
 
+    services.resolved.enable = false;
     services.dnsmasq = {
         enable = true;
         extraConfig = ''
-           interface=enp3s0
+           interface=enp0s31f6
            # gateway
            dhcp-option=3,143.106.50.65
            # dns servers
