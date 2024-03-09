@@ -14,7 +14,6 @@
     { device = "/dev/disk/by-uuid/49afd068-a10d-46e5-9c6c-39f70f12363e";
         fsType = "btrfs";
         options = [
-            "subvol=root"
             "defaults"
             "lazytime"
             "noatime"
