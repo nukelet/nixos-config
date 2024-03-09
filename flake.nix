@@ -104,6 +104,14 @@
                 ] ++ baseModules;
                 specialArgs = { inherit inputs outputs; };
             };
+
+            "baron" = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                modules = [
+                    ./hosts/baron
+                ] ++ baseModules;
+                specialArgs = { inherit inputs outputs; };
+            };
         };
 
         homeConfigurations = {
@@ -130,6 +138,14 @@
             "nuke@elpis" = lib.homeManagerConfiguration {
                 modules = [
                     ./home/nuke/elpis.nix
+                ];
+                pkgs = pkgsFor.x86_64-linux;
+                extraSpecialArgs = { inherit inputs outputs; };
+            };
+
+            "nuke@baron" = lib.homeManagerConfiguration {
+                modules = [
+                    ./home/nuke/baron.nix
                 ];
                 pkgs = pkgsFor.x86_64-linux;
                 extraSpecialArgs = { inherit inputs outputs; };
