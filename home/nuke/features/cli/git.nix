@@ -9,7 +9,7 @@
         extraConfig = {
             init.defaultBranch = "main";
 	    user.signing.key = "21A087C50125CF8643D959731C688358233DEE30";
-	    commit.gpgSign = true;
+	    commit.gpgSign = lib.mkDefault true;
         };
         lfs.enable = true;
 	# ignore the output of flake builds
