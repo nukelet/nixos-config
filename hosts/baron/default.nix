@@ -3,8 +3,7 @@
 {
     imports = [
         ./hardware-configuration.nix
-        ./network.nix
-
+        # ./network.nix
         ../common/users
 	../common/global
 	../common/virtualisation
