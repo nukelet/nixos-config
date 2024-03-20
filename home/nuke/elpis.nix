@@ -11,5 +11,6 @@
         ./features/misc
         ./features/nvim
         ./features/gaming/heroic.nix
+        ./features/gaming/ffxiv.nix
     ];
 }
