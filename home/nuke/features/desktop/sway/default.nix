@@ -6,6 +6,8 @@ let
 in
 {
     imports = [
+        ./theme.nix
+
         ../common/kitty.nix
         ../common/fonts.nix
     ];
@@ -19,7 +21,6 @@ in
         xdg-utils # for opening default programs when clicking links
         glib # gsettings
         dracula-theme # gtk theme
-        gnome3.adwaita-icon-theme  # default gnome cursors
         swaylock
         swayidle
         grim # screenshot functionality
@@ -36,7 +37,7 @@ in
         # use the NixOS module, so that we get proper session configuration
         package = null;
         config = rec {
-            terminal = "${pkgs.kitty}";
+            terminal = "${pkgs.kitty}/bin/kitty";
             menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
             modifier = mod;
             floating.modifier = mod;
@@ -95,7 +96,7 @@ in
                 #       generated config file in ~/.config/i3
 
                 # start terminal
-                "${mod}+Return" = "exec kitty";
+                "${mod}+Return" = "exec ${terminal}";
                 # kill focused window
                 "${mod}+Shift+q" = "kill";
                 # start dmenu
