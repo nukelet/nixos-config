@@ -5,6 +5,7 @@
         ./hardware-configuration.nix
 
         # machine-specific audio patches
+        # TODO: fix this (using `environment.etc."<pipewireconf>"` is no longer supported)
         ./audio
 
         ../common/users
@@ -12,15 +13,20 @@
 
 	../common/hardware/bluetooth.nix
 	../common/hardware/nvidia.nix
+	# ../common/hardware/nouveau.nix
+
 	../common/desktop/pipewire.nix
 
 	../common/desktop/i3
+	# ../common/desktop/sway
 
 	../common/virtualisation
 	../common/virtualisation/qemu.nix
 
 	../common/optional/polkit.nix
+
 	../common/gaming
+	../common/gaming/sunshine.nix
 
 	../common/optional/wireshark.nix
     ];
@@ -29,6 +35,9 @@
 
     # for some stupid reason NixOS defaults to LMB+RMB = middle button click
     services.xserver.libinput.mouse.middleEmulation = false;
+
+    # for nvidia proprietary drivers in sway
+    programs.sway.extraOptions = [ "--unsupported-gpu" ];
 
     # configure monitors in xrandr
     # TODO: maybe refactor this into something more idiomatic?
