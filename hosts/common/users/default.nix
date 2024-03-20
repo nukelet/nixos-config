@@ -21,6 +21,10 @@ in
             ];
 
             hashedPasswordFile = sops.secrets.nuke-hashed-password.path;
+
+            # needed for podman stuff
+            subUidRanges = [{ startUid = 100000; count = 65536; }];
+            subGidRanges = [{ startGid = 100000; count = 65536; }];
         };
     };
 
