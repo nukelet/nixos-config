@@ -1,0 +1,45 @@
+diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+index d31edad7a056..0c0e06ea9286 100644
+--- a/drivers/bluetooth/btusb.c
++++ b/drivers/bluetooth/btusb.c
+@@ -4481,6 +4481,7 @@ static int btusb_probe(struct usb_interface *intf,
+ 		set_bit(HCI_QUIRK_BROKEN_READ_TRANSMIT_POWER, &hdev->quirks);
+ 		set_bit(HCI_QUIRK_BROKEN_SET_RPA_TIMEOUT, &hdev->quirks);
+ 		set_bit(HCI_QUIRK_BROKEN_EXT_SCAN, &hdev->quirks);
++		set_bit(HCI_QUIRK_BROKEN_READ_ENC_KEY_SIZE, &hdev->quirks);
+ 	}
+ 
+ 	if (!reset)
+diff --git a/include/net/bluetooth/hci.h b/include/net/bluetooth/hci.h
+index bdee5d649cc6..8c36e094ec99 100644
+--- a/include/net/bluetooth/hci.h
++++ b/include/net/bluetooth/hci.h
+@@ -330,6 +330,14 @@ enum {
+ 	 * during the hdev->setup vendor callback.
+ 	 */
+ 	HCI_QUIRK_BROKEN_LE_CODED,
++
++	/*
++	 * When this quirk is set, the HCI_OP_READ_ENC_KEY_SIZE command is
++	 * skipped during an HCI_EV_ENCRYPT_CHANGE event. This is required
++	 * for Actions Semiconductor ATS2851 based controllers, which erroneously
++	 * claim to support it.
++	 */
++	HCI_QUIRK_BROKEN_READ_ENC_KEY_SIZE,
+ };
+ 
+ /* HCI device flags */
+diff --git a/net/bluetooth/hci_event.c b/net/bluetooth/hci_event.c
+index ef8c3bed7361..399f983bbb1d 100644
+--- a/net/bluetooth/hci_event.c
++++ b/net/bluetooth/hci_event.c
+@@ -3660,7 +3660,8 @@ static void hci_encrypt_change_evt(struct hci_dev *hdev, void *data,
+ 		 * controller really supports it. If it doesn't, assume
+ 		 * the default size (16).
+ 		 */
+-		if (!(hdev->commands[20] & 0x10)) {
++		if (!(hdev->commands[20] & 0x10) ||
++		    test_bit(HCI_QUIRK_BROKEN_READ_ENC_KEY_SIZE, &hdev->quirks)) {
+ 			conn->enc_key_size = HCI_LINK_KEY_SIZE;
+ 			goto notify;
+ 		}

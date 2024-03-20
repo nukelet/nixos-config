@@ -7,6 +7,7 @@
         General = {
             Experimental = true;
             KernelExperimental = true;
+            JustWorksRepairing = "always";
         };
     };
 }

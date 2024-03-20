@@ -3,16 +3,35 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
+let
+    bluetooth-kernel-module = pkgs.callPackage ./kernel/bluetooth-kernel-module.nix {
+        kernel = config.boot.kernelPackages.kernel;
+    };
+
+    btusb-kernel-module = pkgs.callPackage ./kernel/btusb-kernel-module.nix {
+        kernel = config.boot.kernelPackages.kernel;
+    };
+in
 {
     imports =
         [ (modulesPath + "/installer/scan/not-detected.nix")
         ];
 
     boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+    # patches for my bluetooth dongle
+    boot.extraModulePackages = [
+        (bluetooth-kernel-module.overrideAttrs (_: {
+            patches = [ ./kernel/actions_bt.patch ];
+        }))
+
+        (bluetooth-kernel-module.overrideAttrs (_: {
+            patches = [ ./kernel/actions_bt.patch ];
+        }))
+    ];
+
     boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
     boot.initrd.kernelModules = [ ];
     boot.kernelModules = [ "kvm-amd" ];
-    boot.extraModulePackages = [ ];
 
     fileSystems."/" =
     { device = "/dev/disk/by-uuid/7db36e69-77ea-4e9b-8d37-d4433a92dfb6";
