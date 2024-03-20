@@ -25,6 +25,8 @@
 	../common/optional/wireshark.nix
     ];
 
+    environment.systemPackages = [ pkgs.obs-studio ];
+
     # for some stupid reason NixOS defaults to LMB+RMB = middle button click
     services.xserver.libinput.mouse.middleEmulation = false;
 
