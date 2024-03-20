@@ -7,8 +7,8 @@
 
     # split the "stereo" output of my Teyun Q-24 audio interface
     # into two separate sinks (left: instrument, right: microphone)
-    environment.etc = {
-        "pipewire/pipewire.conf.d/91-teyun-split.conf".source = ./91-teyun-split.conf;
-    };
+    # environment.etc = {
+    #     "pipewire/pipewire.conf.d/91-teyun-split.conf".source = ./91-teyun-split.conf;
+    # };
 
 }
