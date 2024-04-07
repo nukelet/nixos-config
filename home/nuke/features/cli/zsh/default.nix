@@ -5,7 +5,7 @@
         enable = true;
 
         enableCompletion = true;
-        enableAutosuggestions = true;
+        autosuggestion.enable = true;
 
         history = {
             save = 100000;
