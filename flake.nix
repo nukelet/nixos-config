@@ -29,21 +29,6 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        nix-index-database = {
-            url = "github:Mic92/nix-index-database";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        hyprland = {
-            url = "github:hyprwm/Hyprland";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        hyprland-plugins = {
-            url = "github:hyprwm/hyprland-plugins";
-            inputs.hyprland.follows = "hyprland";
-        };
-
         website = {
             url = "github:nukelet/website";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -55,12 +40,12 @@
         };
     };
 
-    outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
         inherit (self) outputs;
         lib = nixpkgs.lib // home-manager.lib;
         baseModules = [
-            nix-index-database.nixosModules.nix-index
+            # Add common modules here
         ];
         systems = [ "x86_64-linux" ];
         overlays = import ./overlays { inherit inputs outputs; };
