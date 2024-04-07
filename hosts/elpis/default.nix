@@ -26,6 +26,7 @@
 	../common/virtualisation/qemu.nix
 
 	../common/optional/polkit.nix
+	../common/optional/keyring.nix
 
 	../common/gaming
 	../common/gaming/sunshine.nix
@@ -33,7 +34,7 @@
 	../common/optional/wireshark.nix
     ];
 
-    environment.systemPackages = [ pkgs.obs-studio ];
+    environment.systemPackages = with pkgs; [ obs-studio ];
 
     # for some stupid reason NixOS defaults to LMB+RMB = middle button click
     services.xserver.libinput.mouse.middleEmulation = false;
