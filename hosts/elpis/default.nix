@@ -8,8 +8,6 @@
         # TODO: fix this (using `environment.etc."<pipewireconf>"` is no longer supported)
         ./audio
 
-        ./vpn
-
         ../common/users
 	../common/global
 
