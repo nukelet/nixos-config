@@ -30,6 +30,8 @@
 	../common/gaming/sunshine.nix
 
 	../common/optional/wireshark.nix
+
+	../common/services/syncthing.nix
     ];
 
     environment.systemPackages = with pkgs; [ obs-studio ];
