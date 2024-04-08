@@ -15,7 +15,7 @@
             devices = {
                 "elpis" = { id = "K4LHBHH-LWHPVHT-PTFFHDD-ONVXKAM-OP6V3T2-PNBYTWN-GVI6GZS-J5DP7A4"; };
             };
-                "zanarkand" = { id = "test"; };
+                "zanarkand" = { id = "J5EXJGG-QPWRNWQ-JJ4MJV2-4LHOZDN-RW4J7K3-RHJ4QEJ-H4JLLR2-TAHAZQB"; };
                 "amaurot" = { id = "test"; };
 
             folders = {
