@@ -3,12 +3,15 @@
 {
     imports = [
         ./hardware-configuration.nix
+
         ../common/users
 	../common/global
 	../common/virtualisation
+
 	../common/services/headscale.nix
 	../common/services/quassel.nix
 	../common/services/website.nix
+	../common/services/syncthing.nix
     ];
 
     networking.hostName = "zanarkand"; # Define your hostname.
