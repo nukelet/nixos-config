@@ -6,10 +6,7 @@ let
 in
 {
     imports = [
-        ./theme.nix
-
-        ../common/kitty.nix
-        ../common/fonts.nix
+        ../common
     ];
 
     home.packages = with pkgs; [

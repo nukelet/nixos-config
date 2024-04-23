@@ -7,7 +7,6 @@ in
     imports = [
         ../common
         ./rofi.nix
-        ./theme.nix
     ];
 
     fonts.fontconfig.enable = true;
