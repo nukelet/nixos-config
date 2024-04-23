@@ -6,13 +6,14 @@
         enable = true;
         driSupport = true;
         driSupport32Bit = true;
+        extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     };
 
     # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = ["nvidia"];
 
     environment.sessionVariables = {
-        WLR_RENDERER = "vulkan";
+        # WLR_RENDERER = "vulkan";
         WLR_NO_HARDWARE_CURSORS = "1";
         XWAYLAND_NO_GLAMOR = "1";
         LIBVA_DRIVER_NAME = "nvidia";
@@ -38,13 +39,13 @@
         # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
         # Only available from driver 515.43.04+
         # Currently alpha-quality/buggy, so false is currently the recommended setting.
-        open = true;
+        open = false;
 
         # Enable the Nvidia settings menu,
         # accessible via `nvidia-settings`.
         nvidiaSettings = true;
 
         # Optionally, you may need to select the appropriate driver version for your specific GPU.
-        package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+        package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 }

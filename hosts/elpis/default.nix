@@ -12,13 +12,13 @@
 	../common/global
 
 	../common/hardware/bluetooth.nix
-	../common/hardware/nvidia.nix
-	# ../common/hardware/nouveau.nix
+	# ../common/hardware/nvidia.nix
+	../common/hardware/nouveau.nix
 
 	../common/desktop/pipewire.nix
 
 	../common/desktop/i3
-	# ../common/desktop/sway
+	../common/desktop/sway
 
 	../common/virtualisation
 	../common/virtualisation/qemu.nix

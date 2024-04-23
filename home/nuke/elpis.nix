@@ -6,7 +6,7 @@
         ./features/development
         ./features/virtualisation
         ./features/desktop/common
-        # ./features/desktop/sway
+        ./features/desktop/sway
         ./features/desktop/i3
         ./features/messaging/discord.nix
         ./features/misc
