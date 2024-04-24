@@ -9,7 +9,6 @@
 	../common/virtualisation
 
 	../common/services/headscale.nix
-	../common/services/quassel.nix
 	../common/services/website.nix
 	../common/services/syncthing.nix
 	
