@@ -14,6 +14,8 @@
 	../common/services/syncthing.nix
 	
 	./niones.nix
+
+	../common/services/thelounge.nix
     ];
 
     networking.hostName = "zanarkand"; # Define your hostname.
