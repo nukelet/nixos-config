@@ -19,7 +19,7 @@
     };
 
     hardware.enableRedistributableFirmware = true;
-    networking.domain = "nukelet.online";
+    networking.domain = "nukelet.com";
     services.resolved.enable = lib.mkDefault true;
 
     environment.systemPackages = with pkgs; [
