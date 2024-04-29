@@ -35,6 +35,7 @@
     ];
 
     environment.systemPackages = with pkgs; [ obs-studio ];
+    services.flatpak.enable = true;
 
     # for some stupid reason NixOS defaults to LMB+RMB = middle button click
     services.xserver.libinput.mouse.middleEmulation = false;
