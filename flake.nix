@@ -44,9 +44,6 @@
     let
         inherit (self) outputs;
         lib = nixpkgs.lib // home-manager.lib;
-        baseModules = [
-            # Add common modules here
-        ];
         systems = [ "x86_64-linux" ];
         overlays = import ./overlays { inherit inputs outputs; };
         pkgsFor = lib.genAttrs systems (system: import nixpkgs {
@@ -61,7 +58,7 @@
                 system = "x86_64-linux";
                 modules = [
                     ./hosts/thavnair
-                ] ++ baseModules;
+                ];
                 specialArgs = { inherit inputs outputs; };
             };
 
@@ -69,7 +66,7 @@
                 system = "x86_64-linux";
                 modules = [
                     ./hosts/zanarkand
-                ] ++ baseModules;
+                ];
                 specialArgs = { inherit inputs outputs; };
             };
 
@@ -77,7 +74,7 @@
                 system = "x86_64-linux";
                 modules = [
                     ./hosts/amaurot
-                ] ++ baseModules;
+                ];
                 specialArgs = { inherit inputs outputs; };
             };
 
@@ -86,7 +83,7 @@
                 modules = [
                     inputs.musnix.nixosModules.musnix
                     ./hosts/elpis
-                ] ++ baseModules;
+                ];
                 specialArgs = { inherit inputs outputs; };
             };
 
@@ -94,7 +91,7 @@
                 system = "x86_64-linux";
                 modules = [
                     ./hosts/baron
-                ] ++ baseModules;
+                ];
                 specialArgs = { inherit inputs outputs; };
             };
         };
