@@ -15,6 +15,8 @@
 	./niones.nix
 
 	../common/services/thelounge.nix
+
+	./website-notes.nix
     ];
 
     networking.hostName = "zanarkand"; # Define your hostname.
