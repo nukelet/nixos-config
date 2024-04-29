@@ -28,6 +28,8 @@ in
         wdisplays # tool to configure displays
     ];
 
+    # TODO: this is a workaround for https://github.com/nix-community/home-manager/issues/5311
+    wayland.windowManager.sway.checkConfig = false;
 
     wayland.windowManager.sway = {
         enable = true;
