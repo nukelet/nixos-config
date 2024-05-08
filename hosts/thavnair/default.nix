@@ -4,8 +4,8 @@
     imports = [
         ./hardware-configuration.nix
         ../common/users
-	../common/global
-	../common/virtualisation
+	    ../common/global
+	    ../common/virtualisation
     ];
 
 
