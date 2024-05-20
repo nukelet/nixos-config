@@ -6,6 +6,13 @@ let
     fullDomain = "${subDomain}.${baseDomain}";
 in {
     imports = [ ../optional/nginx.nix ];
+
+    services.nginx.virtualHosts.${baseDomain} = {
+        forceSSL = true;
+        enableACME = true;
+        globalRedirect = "${fullDomain}";
+    };
+
     services.nginx.virtualHosts.${fullDomain} = {
         forceSSL = true;
         enableACME = true;

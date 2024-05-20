@@ -10,4 +10,10 @@
         enableACME = true;
         globalRedirect = "www.nukelet.com";
     };
+
+    services.nginx.virtualHosts."nukelet.online" = {
+        forceSSL = true;
+        enableACME = true;
+        globalRedirect = "nukelet.com";
+    };
 }
