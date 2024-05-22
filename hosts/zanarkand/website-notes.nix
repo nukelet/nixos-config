@@ -30,6 +30,14 @@ in {
     services.nginx.virtualHosts.${fullDomain} = {
         forceSSL = true;
         enableACME = true;
+
+        locations."/robots.txt" = {
+            extraConfig = ''
+                rewrite ^/(.*)  $1;
+                return 200 "User-agent: *\nDisallow: /";
+            '';
+        };
+
         locations."/" = {
             proxyPass = "http://localhost:${port}/";
             proxyWebsockets = true;
