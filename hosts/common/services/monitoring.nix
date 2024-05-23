@@ -8,23 +8,53 @@ in {
     imports = [ ../optional/nginx.nix ];
 
     services.grafana = {
-        forceSSL = true;
-        enableACME = true;
         enable = true;
-        domain = "${fullDomain}";
-        port = 9000;
-        addr = "127.0.0.1";
+        settings.server = {
+            domain = "${fullDomain}";
+            http_addr = "127.0.0.1";
+            http_port = 8000;
+        };
     };
 
     services.prometheus = {
         enable = true;
-        port = 9001;
+        port = 8001;
+        scrapeConfigs = [
+            {
+                job_name = "zanarkand";
+                static_configs = [{
+                    targets = [
+                        "127.0.0.1:8001"
+                        "127.0.0.1:8002"
+                        "127.0.0.1:8003"
+                    ];
+                }];
+            }
+        ];
+    };
+
+    services.prometheus.exporters = {
+        node = {
+            enable = true;
+            enabledCollectors = [ "systemd" ];
+            listenAddress = "127.0.0.1";
+            port = 8002;
+        };
+    };
+
+    services.cadvisor = {
+        enable = true;
+        port = 8003;
+        listenAddress = "127.0.0.1";
     };
 
     services.nginx.virtualHosts.${fullDomain} = {
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
-            proxyPass = "http://127.0.0.1:${config.services.grafana.port}";
+            proxyPass = "http://${toString config.services.grafana.settings.server.http_addr}:${toString config.services.grafana.settings.server.http_port}";
             proxyWebsockets = true;
+            recommendedProxySettings = true;
         };
     };
 }
