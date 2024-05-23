@@ -12,6 +12,8 @@
 	../common/services/website.nix
 	../common/services/syncthing.nix
 	
+	../common/services/monitoring.nix
+
 	./niones.nix
 
 	../common/services/thelounge.nix
@@ -22,6 +24,8 @@
 
     networking.hostName = "zanarkand"; # Define your hostname.
     networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+    # Avoid annoying timeouts when upgrading the system
+    systemd.services.NetworkManager-wait-online.enable = false;
 
     # Set your time zone.
     time.timeZone = "America/Sao_Paulo";
