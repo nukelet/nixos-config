@@ -30,6 +30,16 @@ in {
                     ];
                 }];
             }
+
+            {
+                job_name = "thavnair";
+                static_configs = [{
+                    targets = [
+                        "thavnair:8002"
+                        "thavnair:8003"
+                    ];
+                }];
+            }
         ];
     };
 
