@@ -29,6 +29,7 @@ in {
                         "127.0.0.1:8003"
                     ];
                 }];
+                scrape_interval = "15s";
             }
 
             {
@@ -39,6 +40,7 @@ in {
                         "thavnair:8003"
                     ];
                 }];
+                scrape_interval = "15s";
             }
         ];
     };
