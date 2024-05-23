@@ -70,22 +70,22 @@
                 specialArgs = { inherit inputs outputs; };
             };
 
-            "amaurot" = nixpkgs.lib.nixosSystem {
-                system = "x86_64-linux";
-                modules = [
-                    ./hosts/amaurot
-                ];
-                specialArgs = { inherit inputs outputs; };
-            };
-
-            "elpis" = nixpkgs.lib.nixosSystem {
-                system = "x86_64-linux";
-                modules = [
-                    inputs.musnix.nixosModules.musnix
-                    ./hosts/elpis
-                ];
-                specialArgs = { inherit inputs outputs; };
-            };
+            # "amaurot" = nixpkgs.lib.nixosSystem {
+            #     system = "x86_64-linux";
+            #     modules = [
+            #         ./hosts/amaurot
+            #     ];
+            #     specialArgs = { inherit inputs outputs; };
+            # };
+            #
+            # "elpis" = nixpkgs.lib.nixosSystem {
+            #     system = "x86_64-linux";
+            #     modules = [
+            #         inputs.musnix.nixosModules.musnix
+            #         ./hosts/elpis
+            #     ];
+            #     specialArgs = { inherit inputs outputs; };
+            # };
 
             "baron" = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
@@ -109,21 +109,21 @@
                 extraSpecialArgs = { inherit inputs outputs; };
             };
 
-            "nuke@amaurot" = lib.homeManagerConfiguration {
-                modules = [
-                    ./home/nuke/amaurot.nix
-                ];
-                pkgs = pkgsFor.x86_64-linux;
-                extraSpecialArgs = { inherit inputs outputs; };
-            };
-
-            "nuke@elpis" = lib.homeManagerConfiguration {
-                modules = [
-                    ./home/nuke/elpis.nix
-                ];
-                pkgs = pkgsFor.x86_64-linux;
-                extraSpecialArgs = { inherit inputs outputs; };
-            };
+            # "nuke@amaurot" = lib.homeManagerConfiguration {
+            #     modules = [
+            #         ./home/nuke/amaurot.nix
+            #     ];
+            #     pkgs = pkgsFor.x86_64-linux;
+            #     extraSpecialArgs = { inherit inputs outputs; };
+            # };
+            #
+            # "nuke@elpis" = lib.homeManagerConfiguration {
+            #     modules = [
+            #         ./home/nuke/elpis.nix
+            #     ];
+            #     pkgs = pkgsFor.x86_64-linux;
+            #     extraSpecialArgs = { inherit inputs outputs; };
+            # };
 
             "nuke@baron" = lib.homeManagerConfiguration {
                 modules = [
