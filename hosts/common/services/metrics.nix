@@ -14,7 +14,7 @@
     services.cadvisor = {
         enable = true;
         port = 9003;
-        services.cadvisor.listenAddress = "0.0.0.0";
+        listenAddress = "0.0.0.0";
     };
 
     networking.firewall.interfaces = {
