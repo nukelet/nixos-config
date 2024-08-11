@@ -3,6 +3,7 @@
 {
     imports = [
         ./hardware-configuration.nix
+        ./network.nix
 
         ../common/users
 	../common/global
@@ -21,9 +22,9 @@
     boot.loader.grub.device = "nodev"; # or "nodev" for efi only
 
     networking.hostName = "thavnair"; # Define your hostname.
-    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+    # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
     # Avoid annoying timeouts when upgrading the system
-    systemd.services.NetworkManager-wait-online.enable = false;
+    # systemd.services.NetworkManager-wait-online.enable = false;
 
     # Set your time zone.
     time.timeZone = "America/Sao_Paulo";
