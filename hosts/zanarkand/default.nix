@@ -18,14 +18,16 @@
 
 	../common/services/thelounge.nix
 
-        ./site-redirect.nix
+        # ./site-redirect.nix
 	./website-notes.nix
     ];
 
     networking.hostName = "zanarkand"; # Define your hostname.
     networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
     # Avoid annoying timeouts when upgrading the system
-    systemd.services.NetworkManager-wait-online.enable = false;
+    # @nuke: as of 2024-07-27 this breaks NetworkManager
+    # (won't start automatically :upside_down:)
+    # systemd.services.NetworkManager-wait-online.enable = false;
 
     # Set your time zone.
     time.timeZone = "America/Sao_Paulo";
