@@ -109,11 +109,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1732248018,
-        "narHash": "sha256-mEYu8sbmPKG5Ft5oWNIEbFg+DqR3ZZtSBl9jWWbAnHg=",
+        "lastModified": 1732291275,
+        "narHash": "sha256-aigfNd6Uoppcgip11r7kRUgnOasy5J4S0Hin4P3l+SQ=",
         "owner": "nukelet",
         "repo": "website",
-        "rev": "314054f9411d3d9dd2999515d3ee819aa6cf5045",
+        "rev": "33d9db89ae2c35acf8e4e32822c0525e196c3dc5",
         "type": "github"
       },
       "original": {
