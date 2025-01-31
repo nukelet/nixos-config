@@ -3,9 +3,10 @@
 let
     # TODO: change this back to `config.networking.domain`
     #       once we ditch the old domain name
-    baseDomain = "nukelet.com";
-    subDomain = "irc";
-    fullDomain = "${subDomain}.${baseDomain}";
+    # baseDomain = "nukelet.com";
+    # subDomain = "irc";
+    # fullDomain = "${subDomain}.${baseDomain}";
+    fullDomain = "${config.networking.domain}";
     port = 9000;
 in {
     imports = [

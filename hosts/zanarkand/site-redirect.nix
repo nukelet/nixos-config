@@ -5,15 +5,15 @@
         ../common/optional/nginx.nix
     ];
 
-    services.nginx.virtualHosts."www.nukelet.online" = {
+    services.nginx.virtualHosts."www.nukelet.com" = {
         forceSSL = true;
         enableACME = true;
-        globalRedirect = "www.nukelet.com";
+        globalRedirect = "www.nukelet.dev";
     };
 
-    services.nginx.virtualHosts."nukelet.online" = {
+    services.nginx.virtualHosts."nukelet.com" = {
         forceSSL = true;
         enableACME = true;
-        globalRedirect = "nukelet.com";
+        globalRedirect = "nukelet.dev";
     };
 }
