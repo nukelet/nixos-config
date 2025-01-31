@@ -20,6 +20,8 @@
 
         ./site-redirect.nix
 	./website-notes.nix
+
+	./synapse.nix
     ];
 
     networking.hostName = "zanarkand"; # Define your hostname.
