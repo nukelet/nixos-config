@@ -6,7 +6,7 @@ let
     # baseDomain = "nukelet.com";
     # subDomain = "irc";
     # fullDomain = "${subDomain}.${baseDomain}";
-    fullDomain = "${config.networking.domain}";
+    fullDomain = "irc.${config.networking.domain}";
     port = 9000;
 in {
     imports = [
