@@ -18,7 +18,7 @@
 
 	../common/services/thelounge.nix
 
-        # ./site-redirect.nix
+        ./site-redirect.nix
 	./website-notes.nix
     ];
 
