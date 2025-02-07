@@ -19,7 +19,9 @@
 	../common/services/thelounge.nix
 
         ./site-redirect.nix
-	./website-notes.nix
+	
+	# TODO: move this to https://quartz.jzhao.xyz/
+	# ./website-notes.nix
 
 	./synapse.nix
     ];
