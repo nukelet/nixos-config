@@ -13,7 +13,7 @@ in {
         settings = {
             logtail.enabled = false;
             server_url = "https://${fullDomain}";
-            dns.base_domain = baseDomain;
+            dns.base_domain = "nukelet.vpn";
         };
     };
 
