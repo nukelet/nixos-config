@@ -24,6 +24,8 @@
 	# ./website-notes.nix
 
 	./synapse.nix
+
+	../common/services/muchsync.nix
     ];
 
     networking.hostName = "zanarkand"; # Define your hostname.
